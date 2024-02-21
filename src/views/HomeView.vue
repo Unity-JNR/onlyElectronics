@@ -74,10 +74,11 @@ export default {
 <style>
 
 body.home{
-  background-image: url('https://cdn-images.imagevenue.com/07/47/db/ME17O3BQ_o.jpg');
+  background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+ 
 }
 
 .transparent {
@@ -171,18 +172,18 @@ a{color:inherit;text-decoration:none}
 	border:none;
 	padding:15px 20px;
 	border-radius:25px;
-	background:rgba(255,255,255,.1);
+	background:rgba(255, 252, 252, 0.1);
 }
 .login-form .group input[data-type="password"]{
-	text-security:circle;
+	/* -text-security:circle; */
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
-	color:#aaa;
+	color:greenyellow;
 	font-size:12px;
 }
 .login-form .group .button{
-	background:magenta;
+	background:darkgreen;
   
 }
 .login-form .group label .icon{
@@ -239,5 +240,9 @@ a{color:inherit;text-decoration:none}
 }
 .foot-lnk{
 	text-align:center;
+}
+
+label{
+	color: #fff;
 }
 </style>

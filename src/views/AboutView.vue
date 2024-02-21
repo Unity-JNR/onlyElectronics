@@ -42,10 +42,11 @@ export default {
 
 <style>
 body.about {
-  background-image: url('https://cdn-images.imagevenue.com/07/47/db/ME17O3BQ_o.jpg');
+  background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075);
   min-height: 100vh;
 }
 
@@ -70,10 +71,10 @@ body.about {
 
 p {
   font-weight: 800;
-  color: black;
+  color: white;
 }
 li{
-  font-weight: 800;
-  color:lightgreen;
+  font-weight: 700;
+  color:rgb(215, 7, 7);
 }
 </style>
