@@ -1,63 +1,91 @@
 <template>
-    <navigation />
-    <div class="banner  text-white p-2">
-      <img
-        src="https://cdn-images.imagevenue.com/95/91/59/ME17OI7N_o.png"
-        id="img"
-        class="img-fluid rounded"
-        alt=""
-      />
+  <navigation />
+  <div class="body">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="txt">
+      <main class="px-3">
+        <h1>Cover your page.</h1>
+        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+        </p>
+      </main>
     </div>
+  </div>   
+</template>
+
+<script>
+import navigation from "@/components/navigation.vue";
+
+
+export default {
+  components: {
+    navigation,
+  },
+};
+
+</script>
+
+<style>
+.body{
+  /* width: 50vw;  */
+  height: 50vh; 
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075);
+  animation: changeImage 15s infinite ease-in-out; 
+}
+#txt{
+  /* background-color: #000; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  min-height: 75vh;
+
+}
+
+p{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+
+}
+h1{
+  color: #000;
+  font-size: 35px;  
+  font-weight: 800;
   
-    <div class="container-fluid mt-3">
-      <p class="text-danger">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
-      <img
-        src="https://cdn-images.imagevenue.com/e8/68/2c/ME17OIH8_o.jpg"
-        id="product-img"
-        class="img-fluid rounded"
-        alt=""
-      />
-    </div>
-  </template>
   
-  <script>
-  import navigation from "@/components/navigation.vue";
-  
-  export default {
-    components: {
-      navigation,
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .banner {
-    width: 100%;
-    padding: 0.5px; /* Note: changed from .5px to 0.5px for consistency */
-    background-color: darkgreen;
-    text-align: center; /* Center the content inside banner */
+}
+
+
+@keyframes changeImage {
+  0% {
+    background-image: url('https://cdn-images.imagevenue.com/5c/54/73/ME17OK7B_o.jpg'); /*speaker */
   }
-  
-  #img {
-    width: 167px;
-    height: 140px;
-    margin: 10px auto; /* Added margin for spacing */
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: all 0.5s ease;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+  16.67% {
+    background-image: url('https://cdn-images.imagevenue.com/bb/6e/7a/ME17OK9I_o.jpg');/**headphones */
   }
-  
-  #product-img {
-    width: 100%; /* Utilize the full width of the container */
-    max-width: 450px; /* Added max-width for responsiveness */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 20px auto; /* Added margin for spacing */
-    border-radius: 10px;
+  33.33% {
+    /* background-image: url('https://cdn-images.imagevenue.com/46/a7/5f/ME17OK8F_o.jpg'); */
   }
-  </style>
-  
+  50% {
+    background-image: url('https://cdn-images.imagevenue.com/9f/2b/ef/ME17OK7T_o.jpg');/*TV */
+  }
+  66.67% {
+    background-image: url('https://cdn-images.imagevenue.com/df/96/fc/ME17OK9D_o.jpg'); /*xbox */
+  }
+  83.33% {
+    background-image: url('https://cdn-images.imagevenue.com/bb/6e/7a/ME17OK9I_o.jpg'); /**headphones */
+  }
+  100% {
+    background-image: url('https://cdn-images.imagevenue.com/5c/54/73/ME17OK7B_o.jpg'); /**speaker */
+  }
+}
+
+</style>

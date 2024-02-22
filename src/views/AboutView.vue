@@ -55,6 +55,8 @@ body.about {
   margin: auto; /* Center the box horizontally */
   padding: 20px; /* Add some padding for better spacing */
   background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
