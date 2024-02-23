@@ -1,99 +1,57 @@
 <template>
 	<navigation />
-	<!-- <div class="body mt-lg-5">
-  
-	  <div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column" id="txt">
-		<main class="px-4">
-		  <h1 class="cover-head">Cover your page.</h1>
-		  <p class="lead" id="cover">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-		  <p class="lead" id="cover">
-			<router-link to="/about" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</router-link>
-		  </p>
-		</main>
-	  </div>
-	</div>    -->
-	<div class="container-fluid main">
-  <!-- Card 2 -->
-  <div id="c2" class="card1">
-    <div class="card1-info">
-      <div class="contact-title">Contact</div>
-      <div class="card1-contact">
-        <li class="icon-contact">
-          Tel:(+00) 000 99999-0000
-        </li>
-        <li class="icon-contact">
-          Email: contact@mail.com
-        </li>
+	<!-- <video autoplay loop controls>
+  <source src="https://drive.google.com/uc?export=download&id=1atY76e_eCjPON3o_A-JhiNvjT_HZd1EO" type="video/mp4">
+ 
+</video> -->
+<VideoPlayer/>
+
+
+
+
+
+	<div class="container mt-5">
+    <h2 class="mb-4">Featured Items</h2>
+
+    <div class="row">
+      <!-- Featured Item 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="image1.jpg" class="card-img-top" alt="Featured Item 1">
+          <div class="card-body">
+            <h5 class="card-title">Item 1</h5>
+            <p class="card-text">Description for Item 1.</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Item 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="image2.jpg" class="card-img-top" alt="Featured Item 2">
+          <div class="card-body">
+            <h5 class="card-title">Item 2</h5>
+            <p class="card-text">Description for Item 2.</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Item 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="image3.jpg" class="card-img-top" alt="Featured Item 3">
+          <div class="card-body">
+            <h5 class="card-title">Item 3</h5>
+            <p class="card-text">Description for Item 3.</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Card 3 -->
-  <div id="c3" class="card1">
-    <div class="card1-info">
-      <li class="address-icon"></li>
-      <li class="address-title">Address:</li>
-      <li class="address">Champs Elysees, Paris.</li>
-    </div>
   </div>
-
-  <!-- Card 1 -->
-  <div id="c1" class="card1">
-    <div class="card1-info">
-      <div class="card1-avatar"></div>
-      <div class="card1-title">Main Title</div>
-      <div class="card1-subtitle">Sub-title</div>
-      <div class="card1-social">
-        <li id="cs1" class="card1-social-icon">
-          Twitter
-        </li>
-        <li id="cs2" class="card1-social-icon">
-          LinkedIn
-        </li>
-        <li id="cs3" class="card1-social-icon">
-          GitHub
-        </li>
-      </div>
-    </div>
-  </div>
-
-  <!-- Additional Cards -->
-  <div class="card1">
-    <!-- Card 4 -->
-    <div class="card1-info">
-      <div class="card1-title">Card 4 Title</div>
-      <div class="card1-subtitle">Card 4 Sub-title</div>
-      <div class="card1-content">Card 4 Content Goes Here</div>
-    </div>
-  </div>
-
-  <div class="card1">
-    <!-- Card 5 -->
-    <div class="card1-info">
-      <div class="card1-title">Card 5 Title</div>
-      <div class="card1-subtitle">Card 5 Sub-title</div>
-      <div class="card1-content">Card 5 Content Goes Here</div>
-    </div>
-  </div>
-
-  <div class="card1">
-    <!-- Card 6 -->
-    <div class="card1-info">
-      <div class="card1-title">Card 6 Title</div>
-      <div class="card1-subtitle">Card 6 Sub-title</div>
-      <div class="card1-content">Card 6 Content Goes Here</div>
-    </div>
-  </div>
-
-  <div class="card1">
-    <!-- Card 7 -->
-    <div class="card1-info">
-      <div class="card1-title">Card 7 Title</div>
-      <div class="card1-subtitle">Card 7 Sub-title</div>
-      <div class="card1-content">Card 7 Content Goes Here</div>
-    </div>
-  </div>
-</div>
 
   </template>
   
@@ -101,10 +59,46 @@
   import navigation from "@/components/navigation.vue";
   
   
+  
   export default {
 	components: {
 	  navigation,
+	 
 	},
+	data() {
+    return {
+      playerId: 'youtube-player', // Change this if needed
+      videoId: 'YOUR_YOUTUBE_VIDEO_ID',
+      player: null,
+    };
+  },
+  mounted() {
+    this.createPlayer();
+  },
+  methods: {
+    createPlayer() {
+      // Ensure that the YouTube API script has loaded
+      if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        // Retry in 100 milliseconds if not yet loaded
+        setTimeout(this.createPlayer, 100);
+        return;
+      }
+
+      // Create the YouTube player
+      this.player = new YT.Player(this.playerId, {
+        height: '360',
+        width: '640',
+        videoId: this.videoId,
+        events: {
+          onReady: this.onPlayerReady,
+        },
+      });
+    },
+    onPlayerReady(event) {
+      // You can perform actions when the player is ready
+      console.log('Player ready:', event);
+    },
+  }
   };
   
   </script>
