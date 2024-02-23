@@ -42,5 +42,6 @@ router.beforeEach((to, from, next) => {
   const body = document.body
   body.className = to.name || 'default' // Use route name as the class or a default class
   next()
+  
 })
 export default router

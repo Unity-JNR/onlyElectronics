@@ -51,15 +51,15 @@ body.about {
 }
 
 .aboutbox {
-  max-width: 800px; /* Adjust the maximum width based on your design */
-  margin: auto; /* Center the box horizontally */
-  padding: 20px; /* Add some padding for better spacing */
-  background: rgba(0, 0, 0, 0.4);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 800px !important; /* Adjust the maximum width based on your design */
+  margin: auto !important; /* Center the box horizontally */
+  padding: 20px !important; /* Add some padding for better spacing */
+  background: rgba(0, 0, 0, 0.4) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .about {
@@ -68,15 +68,15 @@ body.about {
 }
 
 #heading {
-  color: rgb(8, 190, 190);
+  color: rgb(8, 190, 190) !important;
 }
 
 p {
-  font-weight: 800;
-  color: white;
+  font-weight: 800 !important;
+  color: white !important;
 }
 li{
-  font-weight: 700;
-  color: rgb(8, 190, 190);
+  font-weight: 700 !important;
+  color: rgb(8, 190, 190) !important;
 }
 </style>

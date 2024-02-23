@@ -82,9 +82,9 @@
 }
   </script>
  
-  <style scoped>
+  <style>
   #heading {
-    color: white;
+    color: white !important;
   }
  
  
