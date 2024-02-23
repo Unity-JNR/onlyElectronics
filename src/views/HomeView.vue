@@ -1,248 +1,96 @@
 <template>
-  <navigation/>
-  <div class="home">
-   <div class="transparent">
-    <div class="login-wrap">
-	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-form">
-			<div class="sign-in-htm">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<input id="check" type="checkbox" class="check" checked>
-					<label for="check"><span class="icon"></span> Keep me Signed in</label>
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign In">
-				</div>
-				<div class="hr"></div>
-				<div class="foot-lnk">
-					<a href="#forgot">Forgot Password?</a>
-				</div>
-			</div>
-			<div class="sign-up-htm">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Repeat Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Email Address</label>
-					<input id="pass" type="text" class="input">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
-				<div class="hr"></div>
-			</div>
-		</div>
-	</div>
-</div>
-   </div>
-    
-  </div>
-</template>
-
-<script>
-// @ is an alias to /src
-import navigation from '@/components/navigation.vue'
-
-
-export default {
-  name: 'HomeView',
-  components: {
-    navigation
+	<navigation />
+	<div class="body mt-lg-5">
+  
+	  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="txt">
+		<main class="px-4">
+		  <h1>Cover your page.</h1>
+		  <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+		  <p class="lead">
+			<a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+		  </p>
+		</main>
+	  </div>
+	</div>   
+  </template>
+  
+  <script>
+  import navigation from "@/components/navigation.vue";
+  
+  
+  export default {
+	components: {
+	  navigation,
+	},
+  };
+  
+  </script>
+  
+  <style>
+  
+  body{
+	background: linear-gradient(to right,rgb(19, 136, 19),rgb(179, 179, 24));
   }
-}
-</script>
-
-<style>
-
-body.home{
-  background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
- 
-}
-
-.transparent {
-  height: 640px;
-  width: 640px;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .body{
+	/* width: 50vw;  */
+	height: 50vh; 
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	/* border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075); */
+	animation: changeImage 15s infinite ease-in-out; 
+  }
+  #txt{
+	/* background-color: #000; */
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	min-height: 75vh;
   
-
-}
-.home{
-  display: flex;
-  justify-content: center;
- 
-}
-
-*,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
-.clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
-
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:525px;
-	min-height:670px;
-	position:relative;
-	
-}
-.login-html{
-	width:100%;
-	height:100%;
-	position:absolute;
-	padding:90px 70px 50px 70px;
-	
-}
-.login-html .sign-in-htm,
-.login-html .sign-up-htm{
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	position:absolute;
-	transform:rotateY(180deg);
-	backface-visibility:hidden;
-	transition:all .4s linear;
-}
-.login-html .sign-in,
-.login-html .sign-up,
-.login-form .group .check{
-	display:none;
-}
-.login-html .tab,
-.login-form .group .label,
-.login-form .group .button{
-	text-transform:uppercase;
-}
-.login-html .tab{
-	font-size:22px;
-	margin-right:15px;
-	padding-bottom:5px;
-	margin:0 15px 10px 0;
-	display:inline-block;
-	border-bottom:2px solid transparent;
-}
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
-	color:#fff;
-	border-color:green;
-}
-.login-form{
-	min-height:345px;
-	position:relative;
-	perspective:1000px;
-	transform-style:preserve-3d;
-}
-.login-form .group{
-	margin-bottom:15px;
-}
-.login-form .group .label,
-.login-form .group .input,
-.login-form .group .button{
-	width:100%;
-	color:#fff;
-	display:block;
-}
-.login-form .group .input,
-.login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(255, 252, 252, 0.1);
-}
-.login-form .group input[data-type="password"]{
-	/* -text-security:circle; */
-	-webkit-text-security:circle;
-}
-.login-form .group .label{
-	color:greenyellow;
-	font-size:12px;
-}
-.login-form .group .button{
-	background:darkgreen;
+  }
   
-}
-.login-form .group label .icon{
-	width:15px;
-	height:15px;
-	border-radius:2px;
-	position:relative;
-	display:inline-block;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group label .icon:before,
-.login-form .group label .icon:after{
-	content:'';
-	width:10px;
-	height:2px;
-	background:#fff;
-	position:absolute;
-	transition:all .2s ease-in-out 0s;
-}
-.login-form .group label .icon:before{
-	left:3px;
-	width:5px;
-	bottom:6px;
-	transform:scale(0) rotate(0);
-}
-.login-form .group label .icon:after{
-	top:6px;
-	right:0;
-	transform:scale(0) rotate(0);
-}
-.login-form .group .check:checked + label{
-	color:#fff;
-}
-.login-form .group .check:checked + label .icon{
-	background:#1161ee;
-}
-.login-form .group .check:checked + label .icon:before{
-	transform:scale(1) rotate(45deg);
-}
-.login-form .group .check:checked + label .icon:after{
-	transform:scale(1) rotate(-45deg);
-}
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-	transform:rotate(0);
-}
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-	transform:rotate(0);
-}
-
-.hr{
-	height:2px;
-	margin:60px 0 50px 0;
-	background:rgba(255,255,255,.2);
-}
-.foot-lnk{
-	text-align:center;
-}
-
-label{
-	color: #fff;
-}
-</style>
+  p{
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.5;
+	margin-bottom: 1rem;
+	font-family: 'Open Sans', sans-serif;
+	color: #000;
+  
+  }
+  h1{
+	color: #000;
+	font-size: 35px;  
+	font-weight: 800;
+	
+	
+  }
+  
+  
+  @keyframes changeImage {
+	0% {
+	  background-image: url('https://cdn-images.imagevenue.com/5c/54/73/ME17OK7B_o.jpg'); /*speaker */
+	}
+	16.67% {
+	  background-image: url('https://cdn-images.imagevenue.com/bb/6e/7a/ME17OK9I_o.jpg');/**headphones */
+	}
+	33.33% {
+	  /* background-image: url('https://cdn-images.imagevenue.com/46/a7/5f/ME17OK8F_o.jpg'); */
+	}
+	50% {
+	  background-image: url('https://cdn-images.imagevenue.com/9f/2b/ef/ME17OK7T_o.jpg');/*TV */
+	}
+	66.67% {
+	  background-image: url('https://cdn-images.imagevenue.com/df/96/fc/ME17OK9D_o.jpg'); /*xbox */
+	}
+	83.33% {
+	  background-image: url('https://cdn-images.imagevenue.com/bb/6e/7a/ME17OK9I_o.jpg'); /**headphones */
+	}
+	100% {
+	  background-image: url('https://cdn-images.imagevenue.com/5c/54/73/ME17OK7B_o.jpg'); /**speaker */
+	}
+  }
+  
+  </style>
+  

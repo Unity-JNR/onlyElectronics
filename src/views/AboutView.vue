@@ -77,6 +77,6 @@ p {
 }
 li{
   font-weight: 700;
-  color:rgb(215, 7, 7);
+  color: rgb(8, 190, 190);
 }
 </style>
