@@ -24,7 +24,7 @@
                             <td>R{{ item.amount }}</td>
                             <td>{{ item.Category }}</td>
                             <td><img :src="item.prodUrl" alt="Product Image" id="image" class=" img-fluid"></td>
-                            <td><button class="btns">edit</button></td>
+                            <td><button class="btns" @click="updateproduct(item.prodID)">edit</button></td>
                             <td><button class="btns" @click="deleteproduct(item.prodID)">delete</button></td>
                         </tr>
                     </tbody>
@@ -32,14 +32,15 @@
             </summary>
             <div>
         <!-- <input type="number" placeholder="id" v-model="productID"> -->
-        <input type="text" placeholder="productname" v-model="prodName">
-        <input type="number" placeholder="quantity" v-model="quantity">
-        <input type="number" placeholder="amount" v-model="amount">
-        <input type="text" placeholder="category" v-model="Category">
-        <input type="text" placeholder="img" v-model="prodUrl">
+        <input id="input" type="text" placeholder="productname" v-model="prodName">
+        <input id="input" type="number" placeholder="quantity" v-model="quantity">
+        <input id="input" type="number" placeholder="amount" v-model="amount">
+        <input id="input" type="text" placeholder="category" v-model="Category">
+        <input id="input" type="text" placeholder="img" v-model="prodUrl">
         <button @click="addproducts()" id="btn">add</button>
     </div>
         </details>
+
     </div>
     <footers/>
 </template>
@@ -73,6 +74,18 @@ export default {
   },
   deleteproduct(prodID) {
             this.$store.dispatch('deleteproduct',prodID)
+          },
+          updateproduct(id){
+            let edit = {
+                prodID:id,
+                prodName:this.prodName,
+                quantity:this.quantity,
+                amount:this.amount,
+                Category:this.Category,
+                prodUrl:this.prodUrl
+            }
+            this.$store.dispatch('updateproduct',edit)
+
           }
     },
     mounted() {
@@ -114,4 +127,24 @@ export default {
         font-weight: bold!important;
         cursor: pointer!important;
     }
+
+#input {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+
+}
+#input::placeholder{
+    color: white ;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 </style>

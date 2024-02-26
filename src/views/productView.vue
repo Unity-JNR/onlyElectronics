@@ -12,7 +12,7 @@
         <div class="card-data">
           <p class="title">{{ item.prodName }}
           </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <router-link @click="getproduct(item.prodID)" :to="{ name: 'productDetails', params: { prodID: item.prodID }} ">details</router-link>
+          <router-link @click="getproduct(item.prodID)" :to="{ name: 'productDetails', params: { prodID: item.prodID }} " class="btn btn-dark">details</router-link>
 
         </div>
     </div>

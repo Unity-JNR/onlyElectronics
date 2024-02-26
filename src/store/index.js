@@ -50,6 +50,11 @@ export default createStore({
      let {data} = await axios.delete(web+'/'+prodID)
      console.log();
      window.location.reload()
+    },
+    async updateproduct({commit},update){
+      let {data} = await axios.patch(web+'/'+ update.prodID,update)
+      console.log(data);
+      window.location.reload()
     }
   },
 
