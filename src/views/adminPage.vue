@@ -25,7 +25,7 @@
                             <td>{{ item.Category }}</td>
                             <td><img :src="item.prodUrl" alt="Product Image" id="image" class=" img-fluid"></td>
                             <td><button class="btns">edit</button></td>
-                            <td><button class="btns">delete</button></td>
+                            <td><button class="btns" @click="deleteproduct(item.prodID)">delete</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -70,7 +70,10 @@ export default {
         addproducts(){
             console.log(this.$store.data);
     this.$store.dispatch('addproduct',this.$data)
-  }
+  },
+  deleteproduct(prodID) {
+            this.$store.dispatch('deleteproduct',prodID)
+          }
     },
     mounted() {
         this.getadmin();
