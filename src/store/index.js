@@ -5,7 +5,8 @@ let web = 'https://nodejs-server-qp0i.onrender.com/products'
 export default createStore({
   state: {
     products: null,
-    product: null
+    product: null,
+    admin: null
   },
   getters: {
   },
@@ -15,7 +16,11 @@ export default createStore({
     },
     setoneproduct(state,data){
       state.product = data
+    },
+    setadmin(state,data){
+      state.admin = data
     }
+   
 
   },
   actions: {
@@ -30,8 +35,14 @@ export default createStore({
       let {data} = await axios.get(web+'/'+prodID);
       console.log(data);
       commit('setoneproduct',data)
+    },
+    async getadmin({commit}){
+      let {data} = await axios.get(web)
+      console.log(data);
+      commit('setadmin',data)
     }
   },
+
   modules: {
   }
 })

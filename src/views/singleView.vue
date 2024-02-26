@@ -43,9 +43,6 @@
   </script>
   
   <style>
-  body {
-    background-color: rgb(242, 18, 18);
-  }
   /* Add your other styles here */
   </style>
   

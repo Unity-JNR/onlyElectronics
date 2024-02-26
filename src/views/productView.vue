@@ -2,9 +2,9 @@
     <navigation/>
 
 
-    <div class="container">
+    <div class="container me-5">
     <div class="row">
-        <div class="col-md-4" v-for="item in $store.state.products" :key="item.prodID">
+        <div class="col-lg-4 pb-5" v-for="item in $store.state.products" :key="item.prodID">
           <article class="cards">
     <div class="card-int">
         <span class="card__span">{{item.Category}}</span>
@@ -76,7 +76,8 @@ p{
 }
 
 .img {
-  width: 100%;
+  width: 95%;
+  object-fit:contain;
   height: 175px;
   background-color: pink;
 }
