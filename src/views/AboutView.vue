@@ -42,12 +42,12 @@ export default {
 
 <style>
 body.about {
-  background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075);
-  min-height: 100vh;
+  background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg') !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075) !important;
+  min-height: 100vh !important;
 }
 
 .aboutbox {

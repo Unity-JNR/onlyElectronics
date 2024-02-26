@@ -51,7 +51,7 @@ export default {
 
 }
 </script>
-<style>
+<style scoped>
 body{
   background: linear-gradient(to right,rgb(19, 136, 19),rgb(179, 179, 24));
 }
@@ -137,7 +137,7 @@ button:active {
   }
 }
 p{
-  color: #000;
+  color: #000 !important;
 }
 
 
