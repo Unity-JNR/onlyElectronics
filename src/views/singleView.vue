@@ -31,15 +31,13 @@
     data() {
       return {};
     },
-    methods: {
+    computed: {
       getproduct() {
-        const productId = this.$route.params.id; // Use this.$route.params.id to get the dynamic route parameter
-        console.log(productId);
-        this.$store.dispatch("getproduct", productId);
+        this.$store.dispatch("getproduct", this.$route.params.prodID);
       },
     },
     mounted() {
-      this.getproduct(); // Corrected the function invocation
+      this.getproduct; // Corrected the function invocation
     },
   }
   </script>

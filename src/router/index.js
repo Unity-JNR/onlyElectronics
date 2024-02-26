@@ -24,7 +24,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/productView.vue')
   },
   {
-    path: '/product:id',
+    path: '/product/:prodID',
     name: 'productDetails',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -50,6 +50,6 @@ router.beforeEach((to, from, next) => {
   const body = document.body
   body.className = to.name || 'default' // Use route name as the class or a default class
   next()
-  
+
 })
 export default router

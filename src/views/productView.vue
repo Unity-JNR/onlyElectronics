@@ -12,7 +12,7 @@
         <div class="card-data">
           <p class="title">{{ item.prodName }}
           </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <router-link :to="'/product/' + item.prodID" @click="getproduct(item.prodID)">Details</router-link>
+          <router-link @click="getproduct(item.prodID)" :to="{ name: 'productDetails', params: { prodID: item.prodID }} ">details</router-link>
 
         </div>
     </div>
@@ -33,9 +33,9 @@ export default {
         }
     },
     methods: {
-      getproduct(id){
-          console.log(id);
-           this.$store.dispatch('getproduct',id)
+      getproduct(prodID) {
+          console.log(prodID);
+           this.$store.dispatch('getproduct',prodID);
         }
     },
     computed:{
@@ -55,7 +55,9 @@ export default {
 body{
   background: linear-gradient(to right,rgb(19, 136, 19),rgb(179, 179, 24));
 }
-
+p{
+    color: #000;
+}
 .cards {
   width: 300px;
   padding: 10px;

@@ -13,7 +13,7 @@ export default createStore({
     setproducts(state,data){
       state.products = data
     },
-    setproduct(state,data){
+    setoneproduct(state,data){
       state.product = data
     }
 
@@ -25,11 +25,11 @@ export default createStore({
     commit('setproducts',data)
 
     },
-    getproduct({commit},id){
-      let {data} = axios.get(web+'/'+id)
+    async getproduct({commit},prodID){
+      console.log(prodID);
+      let {data} = await axios.get(web+'/'+prodID);
       console.log(data);
-      console.log(id);
-      commit('setproduct',data)
+      commit('setoneproduct',data)
     }
   },
   modules: {
