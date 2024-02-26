@@ -40,6 +40,10 @@ export default createStore({
       let {data} = await axios.get(web)
       console.log(data);
       commit('setadmin',data)
+    },
+    async addproduct({commit},product){
+      let {data} = await axios.post(web,product)
+      console.log(data);
     }
   },
 

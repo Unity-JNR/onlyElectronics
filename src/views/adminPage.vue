@@ -26,9 +26,15 @@
                     </tbody>
                 </table>
             </summary>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <div>
+        <!-- <input type="number" placeholder="id" v-model="productID"> -->
+        <input type="text" placeholder="productname" v-model="productname">
+        <input type="number" placeholder="quantity" v-model="quantity">
+        <input type="number" placeholder="amount" v-model="amount">
+        <input type="text" placeholder="category" v-model="category">
+        <input type="text" placeholder="img" v-model="produrl">
+        <button @click="addproducts()">add</button>
+    </div>
         </details>
     </div>
     <footers/>
@@ -43,10 +49,25 @@ export default {
         navigation,
         footers
     },
+    data() {
+     return {
+      
+            productname:'',
+            quantity:'',
+            amount:'',
+            category:'',
+            produrl:''
+     }
+
+    },
     methods: {
         async getadmin() {
             await this.$store.dispatch('getadmin');
-        }
+        },
+        addproducts(){
+            console.log(this.$store.data);
+    this.$store.dispatch('addfruits',this.$data)
+  }
     },
     mounted() {
         this.getadmin();
