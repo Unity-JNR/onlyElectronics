@@ -61,7 +61,7 @@ p{
 .cards {
   width: 300px;
   padding: 10px;
-  background-image: linear-gradient(to right bottom, #5d0391, #7b05ae, #9b05cb, #bd00e7, #bd00e7);
+  background-image: linear-gradient(to right bottom, #fa11b0, #7b05ae, #fc06b6, #f5ecf7, #f70ea5);
   background-size: 200% 200%;
   border-radius: 12px;
 }

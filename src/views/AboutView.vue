@@ -42,11 +42,11 @@ export default {
 
 <style>
 body.about {
-  background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg') !important;
+  /* background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg') !important; */
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075) !important;
+  /* border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075) !important; */
   min-height: 100vh !important;
 }
 
@@ -54,7 +54,7 @@ body.about {
   max-width: 800px !important; /* Adjust the maximum width based on your design */
   margin: auto !important; /* Center the box horizontally */
   padding: 20px !important; /* Add some padding for better spacing */
-  background: rgba(0, 0, 0, 0.4) !important;
+  background: rgba(0, 0, 0, 0.2) !important;
   -webkit-backdrop-filter: blur(10px) !important;
   backdrop-filter: blur(10px) !important;
   display: flex !important;
@@ -68,7 +68,8 @@ body.about {
 }
 
 #heading {
-  color: rgb(8, 190, 190) !important;
+  color:rgb(78, 72, 72)!important;
+  font-weight: 800;
 }
 
 p {
@@ -77,6 +78,6 @@ p {
 }
 li{
   font-weight: 700 !important;
-  color: rgb(8, 190, 190) !important;
+  color: greenyellow !important;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <navigation/>
-    <div class="container">
+    <div class="container d-flex justify-content-center mt-5">
       <div class="row">
         <div class="col-md-4" v-for="item in $store.state.product" :key="item.prodID">
           <article class="cards">
@@ -11,7 +11,7 @@
                 <p class="title">{{ item.prodName }}</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             
-                  <button class="btn">More info</button>
+                  <button class="btn">purchase</button>
             
               </div>
             </div>
@@ -49,7 +49,7 @@
 .cards {
   width: 300px;
   padding: 10px;
-  background-image: linear-gradient(to right bottom, #5d0391, #7b05ae, #9b05cb, #bd00e7, #bd00e7);
+  background-image: linear-gradient(to right bottom, #fa11b0, #7b05ae, #fc06b6, #f5ecf7, #f70ea5);
   background-size: 200% 200%;
   border-radius: 12px;
 }

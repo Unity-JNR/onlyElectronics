@@ -15,7 +15,7 @@
   <!-- Add your LinkedIn link or information here -->
   <a href="https://github.com/Unity-JNR" target="_blank" id="icon"><i class="fab fa-github"></i>Github</a>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.8873330180445!2d18.714167875748043!3d-33.866794373227435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc53e11bdbaf17%3A0x2fdeb6e1ebd4a43b!2sLindenhof%2C%20Northpine%2C%20Cape%20Town%2C%207560!5e0!3m2!1sen!2sza!4v1705046450029!5m2!1sen!2sza" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53002.744538521605!2d18.48246284833211!3d-33.87235504537742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc59550fd5cfeb%3A0x5d3b409e27ded873!2sMilnerton%2C%20Cape%20Town!5e0!3m2!1sen!2sza!4v1709036195786!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
  
 
@@ -82,7 +82,7 @@
 }
   </script>
  
-  <style>
+  <style scoped>
   #heading {
     color: white !important;
   }
@@ -91,7 +91,7 @@
  
   /* Section styling */
   .section1 {
-      background-color: lawngreen;
+      background-color: tomato;
       padding: 20px;
       color: white;
       font-weight: 600;
@@ -145,7 +145,7 @@
   }
 
   div #icon:hover {
-    background-color: #333; /* Change the background color on hover as desired */
+    background-color: lawngreen; /* Change the background color on hover as desired */
   }
   iframe{
     margin-top: 1%;

@@ -1,10 +1,6 @@
 <template>
 	<navigation />
-	<!-- <video autoplay loop controls>
-  <source src="https://drive.google.com/uc?export=download&id=1atY76e_eCjPON3o_A-JhiNvjT_HZd1EO" type="video/mp4">
- 
-</video> -->
-<VideoPlayer/>
+	
 
 
 
@@ -67,37 +63,16 @@
 	},
 	data() {
     return {
-      playerId: 'youtube-player', // Change this if needed
-      videoId: 'YOUR_YOUTUBE_VIDEO_ID',
-      player: null,
+    
     };
   },
   mounted() {
-    this.createPlayer();
+ 
   },
   methods: {
-    createPlayer() {
-      // Ensure that the YouTube API script has loaded
-      if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
-        // Retry in 100 milliseconds if not yet loaded
-        setTimeout(this.createPlayer, 100);
-        return;
-      }
+ 
 
-      // Create the YouTube player
-      this.player = new YT.Player(this.playerId, {
-        height: '360',
-        width: '640',
-        videoId: this.videoId,
-        events: {
-          onReady: this.onPlayerReady,
-        },
-      });
-    },
-    onPlayerReady(event) {
-      // You can perform actions when the player is ready
-      console.log('Player ready:', event);
-    },
+   
   }
   };
   

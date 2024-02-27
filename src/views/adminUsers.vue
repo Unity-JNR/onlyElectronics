@@ -1,0 +1,122 @@
+<template>
+    <navigation/>
+    <div>
+
+      
+                
+        <table class="table table-bordered table-hover table-responsive">
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>surname</th>
+                <th>age</th>
+                <th>gender</th>
+                <th>userRole</th>
+                <th>emailAdd</th>
+                <th>userProfile</th>
+                <th>delete</th>
+                <th>edit</th>
+                
+            </tr>
+            <tr v-for="item in $store.state.user" :key="item.userID">
+                <td>{{item.userID}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.Gender}}</td>
+                <td>{{item.userAge}}</td>
+                <td>{{item.userRole}}</td>
+                <td>{{item.emailAdd}}</td>
+                <td>{{item.userProfile}}</td>
+                <td><button @click="deleteuser(item.userID)" class="btn">delete</button></td>
+                <td><button @click="updateuser(item.userID)" class="btn">edit</button></td>
+
+                
+            </tr>
+        </table>
+           
+            <div>
+        <!-- <input type="number" placeholder="id" v-model="productID"> -->
+        <input id="input" type="text" placeholder="firstname" v-model="firstName">
+        <input id="input" type="text" placeholder="surname" v-model="lastName">
+        <input id="input" type="text" placeholder="gender" v-model="Gender">
+        <input id="input" type="number" placeholder="userage" v-model="userAge">
+        <input id="input" type="text" placeholder="role" v-model="userRole">
+        <input id="input" type="text" placeholder="email" v-model="emailAdd">
+        <input id="input" type="text" placeholder="userProfile" v-model="userProfile">
+        <input id="input" type="text" placeholder="password" v-model="userPass">
+        <button @click="adduser()" id="btn">add</button>
+    </div>
+       
+       
+    </div>
+</template>
+<script>
+import navigation from '@/components/navigation.vue';
+export default {
+    components: {
+        navigation,
+    },
+    data() {
+        return{
+            firstName: '',
+            lastName: '',
+            Gender: '',
+            userAge: '',
+            userRole: '',
+            emailAdd: '',
+            userProfile:'',
+            userPass:'',
+        }
+    },
+    methods: {
+        adduser() {
+            console.log(this.$data);
+            this.$store.dispatch('adduser',this.$data)
+        },
+        deleteuser(userID) {
+          this.$store.dispatch('deleteuser',userID)
+        },
+        updateuser(id){
+            let edit = {
+                userID: id,
+                firstName: this.firstName,
+                lastName: this.lastName,
+                Gender: this.Gender,
+                userAge: this.userAge,
+                userRole: this.userRole,
+                emailAdd: this.emailAdd,
+                userProfile: this.userProfile,
+                userPass: this.userPass,
+            }
+            this.$store.dispatch('updateuser',edit)
+        }
+     
+    },
+    computed:{
+        getuser() {
+             this.$store.dispatch('getuser')
+        }
+    },
+    
+    mounted() {
+        this.getuser
+    }
+
+    
+}
+</script>
+<style>
+ #btn{
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        width: 100px !important;
+        height: 25px !important;
+        border-radius: 10px !important;
+        border: 1px solid black !important;
+        background-color: white !important;
+        color: black !important;
+        font-size: 15px !important;
+        font-weight: bold !important;
+        cursor: pointer !important;
+    }
+</style>

@@ -24,8 +24,8 @@
                             <td>R{{ item.amount }}</td>
                             <td>{{ item.Category }}</td>
                             <td><img :src="item.prodUrl" alt="Product Image" id="image" class=" img-fluid"></td>
-                            <td><button class="btns" @click="updateproduct(item.prodID)">edit</button></td>
-                            <td><button class="btns" @click="deleteproduct(item.prodID)">delete</button></td>
+                            <td><button class="btnes" @click="updateproduct(item.prodID)">edit</button></td>
+                            <td><button class="btnes" @click="deleteproduct(item.prodID)">delete</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,7 +114,7 @@ export default {
         font-weight: bold !important;
         cursor: pointer !important;
     }
-    .btns{
+    .btnes{
         margin-top: 20px!important;
         margin-bottom: 20px!important;
         width: 100px!important;

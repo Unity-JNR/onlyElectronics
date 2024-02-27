@@ -1,12 +1,14 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 let web = 'https://nodejs-server-qp0i.onrender.com/products'
+let webuser = 'https://nodejs-server-qp0i.onrender.com/users'
 
 export default createStore({
   state: {
     products: null,
     product: null,
-    admin: null
+    admin: null,
+    user: null
   },
   getters: {
   },
@@ -19,6 +21,9 @@ export default createStore({
     },
     setadmin(state,data){
       state.admin = data
+    },
+    setuser(state,data){
+      state.user = data
     }
    
 
@@ -55,8 +60,31 @@ export default createStore({
       let {data} = await axios.patch(web+'/'+ update.prodID,update)
       console.log(data);
       window.location.reload()
-    }
+    },
+    //users
+ async getuser({ commit }) {
+  let { data } = await axios.get(webuser); 
+  console.log(data);
+  commit('setuser', data);
+},
+
+  async adduser({ commit }, newuser) {  
+    let { data } = await axios.post(webuser, newuser); 
+    console.log(data);  
+    window.location.reload(); 
   },
+ async deleteuser({ commit }, userID) {
+   let { data } = await axios.delete(webuser + '/' + userID); 
+   console.log(data);
+   window.location.reload(); 
+ },
+ async updateuser({ commit }, update) {
+   let { data } = await axios.patch(webuser + '/' + update.userID, update); 
+   console.log(data);
+   window.location.reload();  
+ }
+ },
+  
 
   modules: {
   }
