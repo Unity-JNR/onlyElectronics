@@ -29,10 +29,10 @@
                 <p class="lead text-white">High quality products made just for you</p>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                   
+                  <router-link to="/about" class="btn btn-outline-light btn-lg px-4 me-md-2">about</router-link>
+                  <router-link to="/product" class="btn btn-outline-secondary btn-lg px-4">product</router-link>
 
-                    <button type="button" class="btn btn-outline-light btn-lg px-4 me-md-2">about</button>
-
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">product</button>
 
                 </div>
 
@@ -57,17 +57,20 @@
         </div>
         
       </div>
+      <footers/>
 
   </template>
   
   <script>
   import navigation from "@/components/navigation.vue";
+  import footers from "@/components/footers.vue";
   
   
   
   export default {
 	components: {
 	  navigation,
+    footers
 	 
 	},
 	data() {

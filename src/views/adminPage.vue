@@ -7,7 +7,6 @@
                     <table class="table table-bordered table-hover table-dark">
                         <thead>
                             <tr>
-                                <th>id</th>
                                 <th>prodName</th>
                                 <th>quantity</th>
                                 <th>amount</th>
@@ -19,7 +18,6 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in $store.state.admin" :key="item.prodID">
-                                <td>{{ item.prodID }}</td>
                                 <td>{{ item.prodName }}</td>
                                 <td>{{ item.quantity }}</td>
                                 <td>R{{ item.amount }}</td>
@@ -56,12 +54,12 @@ import footers from '@/components/footers.vue';
 
 
 
+
 export default {
 
     components: {
         navigation,
-        footers,
-        
+        footers, 
         
     },
     data() {
@@ -97,10 +95,13 @@ export default {
           addproducts(){
             console.log(this.$store.data);
     this.$store.dispatch('addproduct',this.$data)
-  }
+  },
+
+
     },
     mounted() {
         this.getadmin();
+      
     }
 }
 </script>
@@ -147,6 +148,7 @@ export default {
     padding: 5px 0;
     background-color: transparent;
     outline: none;
+    color: white;
 
     }
     #input::placeholder{

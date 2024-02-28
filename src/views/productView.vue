@@ -31,11 +31,12 @@
 
 
 
-
+<footers/>  
 
 </template>
 <script>
 import navigation from '@/components/navigation.vue';
+import footers from '@/components/footers.vue';
 
 
 
@@ -47,6 +48,7 @@ import navigation from '@/components/navigation.vue';
 export default {
     components: {
         navigation,
+        footers
      
     },
     data() {
@@ -67,7 +69,7 @@ export default {
         // Add more descriptions as needed
       ],
       searchs:'',
-      filteredProducts: []
+    
       }
       
     },
@@ -75,12 +77,6 @@ export default {
       getproduct(prodID) {
           console.log(prodID);
            this.$store.dispatch('getproduct',prodID);
-        },
-        search() {
-            let searchs = this.searchs;
-            this.filteredProducts = this.$store.state.products.filter((item) => {
-                return item.prodName.includes(searchs);
-            });
         }
     },
     computed:{
@@ -91,7 +87,7 @@ export default {
     },
     mounted(){
         this.getproducts
-        console.log('Descriptions:', this.productDescriptions);
+      
         
     }
 

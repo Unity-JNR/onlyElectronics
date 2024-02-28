@@ -8,9 +8,9 @@
               <span class="card__span">{{ item.Category }}</span>
               <img :src="item.prodUrl" alt="" class="img img-fluid mt-5">
               <div class="card-data">
-                <p class="title">{{ item.prodName }}</p>
-                <p :id="'c'+ index">{{ descriptions[item.prodID-1] }}</p>
-                <p>R{{ item.amount }}</p>
+                <p class="title" id="p">{{ item.prodName }}</p>
+                <p :id="'c'+ index" id="p">{{ descriptions[item.prodID-1] }}</p>
+                <p id="p">R{{ item.amount }}</p>
                   <button class="btn">purchase</button>
             
               </div>
@@ -19,14 +19,17 @@
         </div>
       </div>
     </div>
+    <footers />
   </template>
   
   <script>
   import navigation from '@/components/navigation.vue';
+  import footers from '@/components/footers.vue';
   
   export default {
     components: {
-      navigation
+      navigation,
+      footers
     },
     data() {
       return {
@@ -58,9 +61,9 @@
   }
   </script>
   
-  <style>
-  p{
-    color: #000;
+  <style scoped>
+p{
+    color: #000 !important;
 }
 .cards {
   width: 300px;
@@ -140,9 +143,7 @@
     background-position: 400% 400%;
   }
 }
-p{
-  color: #000 !important;
-}
+
 
   </style>
   

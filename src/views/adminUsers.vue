@@ -1,37 +1,38 @@
 <template>
     <navigation/>
-    <div>
-
-      
-                
-        <table class="table table-bordered table-hover table-responsive">
-            <tr>
-                <th>ID</th>
-                <th>name</th>
-                <th>surname</th>
-                <th>age</th>
-                <th>gender</th>
-                <th>userRole</th>
-                <th>emailAdd</th>
-                <th>userProfile</th>
-                <th>delete</th>
-                <th>edit</th>
-                
-            </tr>
-            <tr v-for="item in $store.state.user" :key="item.userID">
-                <td>{{item.userID}}</td>
-                <td>{{item.firstName}}</td>
-                <td>{{item.lastName}}</td>
-                <td>{{item.Gender}}</td>
-                <td>{{item.userAge}}</td>
-                <td>{{item.userRole}}</td>
-                <td>{{item.emailAdd}}</td>
-                <td>{{item.userProfile}}</td>
-                <td><button @click="deleteuser(item.userID)" class="btn">delete</button></td>
-                <td><button @click="updateuser(item.userID)" class="btn">edit</button></td>
-
-                
-            </tr>
+    <div class="table-responsive">          
+        <table class="table table-bordered table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>surname</th>
+                    <th>age</th>
+                    <th>gender</th>
+                    <th>userRole</th>
+                    <th>emailAdd</th>
+                    <th>userProfile</th>
+                    <th>delete</th>
+                    <th>edit</th>
+                    
+                </tr>
+            </thead>
+            <tbody v-for="item in $store.state.user" :key="item.userID">
+                <tr>
+                    <td>{{item.userID}}</td>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.Gender}}</td>
+                    <td>{{item.userAge}}</td>
+                    <td>{{item.userRole}}</td>
+                    <td>{{item.emailAdd}}</td>
+                    <td>{{item.userProfile}}</td>
+                    <td><button @click="deleteuser(item.userID)" id="btn">delete</button></td>
+                    <td><button @click="updateuser(item.userID)" id="btn">edit</button></td>
+    
+                    
+                </tr>
+            </tbody>
         </table>
            
             <div>
@@ -105,7 +106,7 @@ export default {
     
 }
 </script>
-<style>
+<style scoped>
  #btn{
         margin-top: 20px !important;
         margin-bottom: 20px !important;
@@ -127,10 +128,11 @@ export default {
   padding: 5px 0;
   background-color: transparent;
   outline: none;
+  color: white;
 
 }
 #input::placeholder{
-    color: white ;
+    color: gray ;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
