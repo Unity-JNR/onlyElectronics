@@ -119,4 +119,22 @@ export default {
         font-weight: bold !important;
         cursor: pointer !important;
     }
+    #input {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+
+}
+#input::placeholder{
+    color: white ;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 </style>

@@ -91,7 +91,7 @@
  
   /* Section styling */
   .section1 {
-      background-color: tomato;
+    background: linear-gradient( to right, rgba(0, 0, 0, 0.988), rgb(72, 70, 70) );
       padding: 20px;
       color: white;
       font-weight: 600;

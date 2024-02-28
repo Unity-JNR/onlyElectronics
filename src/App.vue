@@ -1,7 +1,22 @@
 <template>
   <router-view/>
+  <!-- <navigation/> -->
+  <spinners/>
+
+  
 </template>
 
+<script>
+import spinners from './components/spinners.vue';
+import navigation from './components/navigation.vue';
+
+export default {
+  components:{
+    spinners,
+    navigation
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -18,10 +33,10 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: white;
+  color: white !important;
 }
 
 nav a.router-link-exact-active {
-  color: lawngreen;
+  color: lawngreen !important;
 }
 </style>

@@ -41,14 +41,7 @@ export default {
 </script>
 
 <style>
-body.about {
-  /* background-image: url('https://cdn-images.imagevenue.com/71/bf/a0/ME17O9IQ_o.jpg') !important; */
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  /* border-image: fill 0 linear-gradient(rgba(0,0,0,0.289),#00000075) !important; */
-  min-height: 100vh !important;
-}
+
 
 .aboutbox {
   max-width: 800px !important; /* Adjust the maximum width based on your design */
