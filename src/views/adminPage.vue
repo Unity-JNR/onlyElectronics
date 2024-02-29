@@ -50,6 +50,7 @@
 <script>
 import navigation from '@/components/navigation.vue';
 import footers from '@/components/footers.vue';
+import sweet from 'sweetalert'
 
 
 
@@ -76,9 +77,40 @@ export default {
         async getadmin() {
             await this.$store.dispatch('getadmin');
         },
-  deleteproduct(prodID) {
-            this.$store.dispatch('deleteproduct',prodID)
-          },
+        deleteproduct(prodID) {
+  // Trigger the delete action
+  this.$store.dispatch('deleteproduct', prodID)
+    .then(() => {
+      // Use SweetAlert for confirmation
+      sweet({
+        title: "Are you sure?",
+        text: "You will not be able to recover this file!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: true,
+      })
+        .then(() => {
+          // Reload the page after successful deletion
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the SweetAlert
+          console.error("Error with SweetAlert:", error);
+        });
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the delete action
+      console.error("Error deleting product:", error);
+      sweet({
+        title: 'Error',
+        text: 'An error occurred while deleting the product.',
+        icon: 'error',
+        timer: 2000
+      });
+    });
+},
           updateproduct(id){
             let edit = {
                 prodID:id,

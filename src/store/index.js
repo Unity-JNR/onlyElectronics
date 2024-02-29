@@ -1,14 +1,16 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import sweet from 'sweetalert'
 let web = 'https://nodejs-server-qp0i.onrender.com/products'
 let webuser = 'https://nodejs-server-qp0i.onrender.com/users'
 
 export default createStore({
   state: {
-    products: null,
+    products: [],
     product: null,
     admin: null,
-    user: null
+    user: null,
+    categroy:[]
   },
   getters: {
   },
@@ -24,15 +26,31 @@ export default createStore({
     },
     setuser(state,data){
       state.user = data
+    },
+    setcategroy(state,data){
+      state.categroy = data
     }
    
 
   },
   actions: {
   async  getproducts({commit}){
-    let {data} = await axios.get(web)
-    console.log(data);
-    commit('setproducts',data)
+    try{
+
+      let {data} = await axios.get(web)
+      console.log(data);
+      if(data){
+
+        commit('setproducts',data)
+      }
+    } catch(e){
+       sweet({
+        title: 'Error',
+        text: 'Something went wrong',
+        icon: 'error',
+        timer:2000
+      })
+    }
 
     },
     async getproduct({commit},prodID){
@@ -53,13 +71,24 @@ export default createStore({
     },
     async deleteproduct({commit},prodID){
      let {data} = await axios.delete(web+'/'+prodID)
-     console.log();
-     window.location.reload()
+     console.log(data);
+
+   
     },
     async updateproduct({commit},update){
       let {data} = await axios.patch(web+'/'+ update.prodID,update)
       console.log(data);
       window.location.reload()
+    },
+   async getcategory({commit}){
+
+let data = await axios.get(web)
+
+console.log(data);
+
+ commit('setcategory',data) 
+
+console.log(data);
     },
     //users
  async getuser({ commit }) {

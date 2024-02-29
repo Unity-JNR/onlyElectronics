@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-<script src="https://www.youtube.com/iframe_api"></script>
+// import 'sweet-alert/sweet-alert.css'
+// import 'sweetalert2/dist/sweetalert2.min.css';
 
 createApp(App).use(store).use(router).mount('#app')
