@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import spinners from './components/spinners.vue';
+
 import navigation from './components/navigation.vue';
 
 export default {
   components:{
-    spinners,
+  
     navigation
   }
 }

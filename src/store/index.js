@@ -7,9 +7,9 @@ let webuser = 'https://nodejs-server-qp0i.onrender.com/users'
 export default createStore({
   state: {
     products: [],
-    product: null,
-    admin: null,
-    user: null,
+    product: [],
+    admin: [],
+    user: [],
     categroy:[]
   },
   getters: {
@@ -35,7 +35,7 @@ export default createStore({
   },
   actions: {
   async  getproducts({commit}){
-    try{
+ 
 
       let {data} = await axios.get(web)
       console.log(data);
@@ -43,16 +43,10 @@ export default createStore({
 
         commit('setproducts',data)
       }
-    } catch(e){
-       sweet({
-        title: 'Error',
-        text: 'Something went wrong',
-        icon: 'error',
-        timer:2000
-      })
-    }
-
+    
     },
+
+   
     async getproduct({commit},prodID){
       console.log(prodID);
       let {data} = await axios.get(web+'/'+prodID);
@@ -67,7 +61,7 @@ export default createStore({
     async addproduct({commit},product){
       let {data} = await axios.post(web,product)
       console.log(data);
-      window.location.reload()
+      // window.location.reload()
     },
     async deleteproduct({commit},prodID){
      let {data} = await axios.delete(web+'/'+prodID)
@@ -78,18 +72,9 @@ export default createStore({
     async updateproduct({commit},update){
       let {data} = await axios.patch(web+'/'+ update.prodID,update)
       console.log(data);
-      window.location.reload()
+      // window.location.reload()
     },
-   async getcategory({commit}){
-
-let data = await axios.get(web)
-
-console.log(data);
-
- commit('setcategory',data) 
-
-console.log(data);
-    },
+ 
     //users
  async getuser({ commit }) {
   let { data } = await axios.get(webuser); 

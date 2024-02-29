@@ -4,30 +4,36 @@
         <details>
             <summary>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-dark">
-                        <thead>
-                            <tr>
-                                <th>prodName</th>
-                                <th>quantity</th>
-                                <th>amount</th>
-                                <th>Category</th>
-                                <th>img</th>
-                                <th>edit</th>
-                                <th>delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="item in $store.state.admin" :key="item.prodID">
-                                <td>{{ item.prodName }}</td>
-                                <td>{{ item.quantity }}</td>
-                                <td>R{{ item.amount }}</td>
-                                <td>{{ item.Category }}</td>
-                                <td><img :src="item.prodUrl" alt="Product Image" id="image" class=" img-fluid"></td>
-                                <td><button class="btnes" @click="updateproduct(item.prodID)">edit</button></td>
-                                <td><button class="btnes" @click="deleteproduct(item.prodID)">delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div v-if="$store.state.admin.length !== 0">
+                        <table class="table table-bordered table-hover table-dark">
+                            <thead>
+                                <tr>
+                                    <th>prodName</th>
+                                    <th>quantity</th>
+                                    <th>amount</th>
+                                    <th>Category</th>
+                                    <th>img</th>
+                                    <th>edit</th>
+                                    <th>delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in $store.state.admin" :key="item.prodID">
+                                    <td>{{ item.prodName }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>R{{ item.amount }}</td>
+                                    <td>{{ item.Category }}</td>
+                                    <td><img :src="item.prodUrl" alt="Product Image" id="image" class=" img-fluid"></td>
+                                    <td><button class="btnes" @click="updateproduct(item.prodID)">edit</button></td>
+                                    <td><button class="btnes" @click="deleteproduct(item.prodID)">delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div v-else>
+                 <spinners/>
+                    </div>
                 </div>
             </summary>
             <div>
@@ -51,6 +57,7 @@
 import navigation from '@/components/navigation.vue';
 import footers from '@/components/footers.vue';
 import sweet from 'sweetalert'
+import spinners from '@/components/spinners.vue';
 
 
 
@@ -61,6 +68,7 @@ export default {
     components: {
         navigation,
         footers, 
+        spinners
         
     },
     data() {
@@ -78,7 +86,7 @@ export default {
             await this.$store.dispatch('getadmin');
         },
         deleteproduct(prodID) {
-  // Trigger the delete action
+ 
   this.$store.dispatch('deleteproduct', prodID)
     .then(() => {
       // Use SweetAlert for confirmation
@@ -121,12 +129,69 @@ export default {
                 prodUrl:this.prodUrl
             }
             this.$store.dispatch('updateproduct',edit)
-          
+            .then(() => {
+      // Use SweetAlert for confirmation
+      sweet({
+        title: "Edited Product",
+        text: "You have edited this product!",
+        type: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#DD6B55",
+        closeOnConfirm: true,
+      })
+        .then(() => {
+          // Reload the page after successful deletion
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the SweetAlert
+          console.error("Error with SweetAlert:", error);
+        });
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the delete action
+      console.error("Error deleting product:", error);
+      sweet({
+        title: 'Error',
+        text: 'An error occurred while deleting the product.',
+        icon: 'error',
+        timer: 2000
+      });
+    });
 
           } ,
           addproducts(){
             console.log(this.$store.data);
     this.$store.dispatch('addproduct',this.$data)
+    .then(() => {
+      // Use SweetAlert for confirmation
+      sweet({
+        title: "Add product?",
+        text: "New product added!",
+        type: "success",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Add!",
+        closeOnConfirm: true,
+      })
+        .then(() => {
+          // Reload the page after successful deletion
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the SweetAlert
+          console.error("Error with SweetAlert:", error);
+        });
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the delete action
+      console.error("Error deleting product:", error);
+      sweet({
+        title: 'Error',
+        text: 'An error occurred while deleting the product.',
+        icon: 'error',
+        timer: 2000
+      });
+    });
   },
 
 

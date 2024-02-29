@@ -2,12 +2,13 @@
       <navigation/>
     <div class="container">
       <div class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="search" @input="searching()">
+        <input class="me-5 input" type="search" placeholder="Search by name or category" aria-label="Search" v-model="search" @change="searching()">
      
         
           </div>
     </div>
 
+    <div v-if="$store.state.products.length !== 0">
       <div class="container me-5">
       <div class="row">
           <div class="col-lg-4 pb-5" v-for="item,index in searching() || cato()" :key="item.prodID">
@@ -28,7 +29,11 @@
           </div>
       </div>
       </div>
+    </div>
 
+<div  v-else>
+<spinners/>
+</div>
 
     
 
@@ -45,6 +50,7 @@
     import navigation from '@/components/navigation.vue';
     import footers from '@/components/footers.vue';
     import sweet from 'sweetalert';
+    import spinners from '@/components/spinners.vue';
 
 
 
@@ -56,10 +62,12 @@
     export default {
         components: {
             navigation,
-            footers
+            footers,
+            spinners
         
         },
         data() {
+        
           return {
             descriptions: [
             `The JBL speaker combines compact design with powerful audio performance, making it a perfect portable companion for immersive sound on the go.`,
@@ -89,7 +97,7 @@
               this.$store.dispatch('getproduct',prodID);
             },
             searching() {
-      try {
+    
         let storage = this.$store.state.products;
         let s = this.search;
         let v = storage.filter(prod => {
@@ -101,25 +109,16 @@
               title: 'Error',
               text: 'No matching items found.',
               icon: 'error',
-              confirmButtonText: 'Ok'
+           timer: 1000
             });
           }
         console.log(v);
         return v;
-      } catch (e) {
-        sweet({
-          title: 'Error',
-          text: 'Something went wrong',
-          icon: 'error',
-          confirmButtonText: 'Ok'
-        });
-        console.error("Error in searching:", e);
-    
-      }
-    }
+      } 
+    },
     
 
-        },
+      
         computed:{
             getproducts(){
                 this.$store.dispatch('getproducts')
@@ -182,10 +181,11 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      background-color: white;
+      background-color: gray;
       padding: 5px 10px;
       border-radius: 15px;
       color: #000;
+      font-weight: 800;
     }
 
     button {
@@ -232,16 +232,16 @@
     }
 
     .input {
-      width: 100%;
+      width: 22%;
       height: 40px;
-      line-height: 28px;
+      line-height: 18px;
       padding: 0 1rem;
-      padding-left: 2.5rem;
+      padding-left: 1.5rem;
       border: 2px solid transparent;
       border-radius: 8px;
       outline: none;
       background-color: #f3f3f4;
-      color: #0d0c22;
+      color: #f3f3f4;
       transition: 0.3s ease;
     }
 
@@ -252,18 +252,12 @@
     .input:focus,
     input:hover {
       outline: none;
-      border-color: rgba(247, 127, 0, 0.4);
-      background-color: #fff;
+      border-color: rgba(255, 255, 255, 0.982);
+      background-color: #0e0e0e;
       box-shadow: 0 0 0 4px rgb(247 127 0 / 10%);
     }
 
-    .icon {
-      position: absolute;
-      left: 1rem;
-      fill: #9e9ea7;
-      width: 1rem;
-      height: 1rem;
-    }
+   
 
 
       

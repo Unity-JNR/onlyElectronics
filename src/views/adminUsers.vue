@@ -1,6 +1,8 @@
 <template>
     <navigation/>
-    <div class="table-responsive">          
+    <div class="table-responsive"> 
+    <div v-if="$store.state.user.length !== 0">
+
         <table class="table table-bordered table-hover table-dark">
             <thead>
                 <tr>
@@ -34,7 +36,11 @@
                 </tr>
             </tbody>
         </table>
+    </div>         
            
+    <div v-else>
+<spinners/>
+    </div>
             <div>
         <!-- <input type="number" placeholder="id" v-model="productID"> -->
         <input id="input" type="text" placeholder="firstname" v-model="firstName">
@@ -53,9 +59,11 @@
 </template>
 <script>
 import navigation from '@/components/navigation.vue';
+import spinners from '@/components/spinners.vue';
 export default {
     components: {
         navigation,
+        spinners
     },
     data() {
         return{
