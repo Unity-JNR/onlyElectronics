@@ -60,6 +60,7 @@
 <script>
 import navigation from '@/components/navigation.vue';
 import spinners from '@/components/spinners.vue';
+import sweet from 'sweetalert';
 export default {
     components: {
         navigation,
@@ -81,9 +82,69 @@ export default {
         adduser() {
             console.log(this.$data);
             this.$store.dispatch('adduser',this.$data)
+            .then(() => {
+      // Use SweetAlert for confirmation
+      sweet({
+        title: "added?",
+        text: "You added user!",
+        type: "success",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "add user!",
+        closeOnConfirm: true,
+      })
+        .then(() => {
+          // Reload the page after successful deletion
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the SweetAlert
+          console.error("Error with SweetAlert:", error);
+        });
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the delete action
+      console.error("Error deleting product:", error);
+      sweet({
+        title: 'Error',
+        text: 'An error occurred while deleting the product.',
+        icon: 'error',
+        timer: 2000
+      });
+    });
         },
         deleteuser(userID) {
           this.$store.dispatch('deleteuser',userID)
+          .then(() => {
+      // Use SweetAlert for confirmation
+      sweet({
+        title: "Are you sure?",
+        text: "You will not be able to recover this file!",
+        type: "danger",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: true,
+      })
+        .then(() => {
+          // Reload the page after successful deletion
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the SweetAlert
+          console.error("Error with SweetAlert:", error);
+        });
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the delete action
+      console.error("Error deleting product:", error);
+      sweet({
+        title: 'Error',
+        text: 'An error occurred while deleting the product.',
+        icon: 'error',
+        timer: 2000
+      });
+    });
         },
         updateuser(id){
             let edit = {
@@ -98,6 +159,36 @@ export default {
                 userPass: this.userPass,
             }
             this.$store.dispatch('updateuser',edit)
+            .then(() => {
+      // Use SweetAlert for confirmation
+      sweet({
+        title: "add?",
+        text: "You added user!",
+        type: "success",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "edit",
+        closeOnConfirm: true,
+      })
+        .then(() => {
+          // Reload the page after successful deletion
+          window.location.reload();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the SweetAlert
+          console.error("Error with SweetAlert:", error);
+        });
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the delete action
+      console.error("Error deleting product:", error);
+      sweet({
+        title: 'Error',
+        text: 'An error occurred while deleting the product.',
+        icon: 'error',
+        timer: 2000
+      });
+    });
         }
      
     },

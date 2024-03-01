@@ -36,17 +36,19 @@
   </div>
 
 
-
+<footers/>
   </template>
  
   <script>
   // @ is an alias to /src
   import navigation from '@/components/navigation.vue'  
   import axios from 'axios'
+  import footers from '@/components/footers.vue'
  
   export default {
     components: {
       navigation,
+      footers
     },
     data() {
     return {

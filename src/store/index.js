@@ -85,17 +85,17 @@ export default createStore({
   async adduser({ commit }, newuser) {  
     let { data } = await axios.post(webuser, newuser); 
     console.log(data);  
-    window.location.reload(); 
+    // window.location.reload(); 
   },
  async deleteuser({ commit }, userID) {
    let { data } = await axios.delete(webuser + '/' + userID); 
    console.log(data);
-   window.location.reload(); 
+  //  window.location.reload(); 
  },
  async updateuser({ commit }, update) {
    let { data } = await axios.patch(webuser + '/' + update.userID, update); 
    console.log(data);
-   window.location.reload();  
+  //  window.location.reload();  
  }
  },
   

@@ -11,7 +11,7 @@
     <div v-if="$store.state.products.length !== 0">
       <div class="container me-5">
       <div class="row">
-          <div class="col-lg-4 pb-5" v-for="item,index in searching() || cato()" :key="item.prodID">
+          <div class="col-lg-4 pb-5" v-for="item,index in searching() " :key="item.prodID">
             <article class="cards">
       <div class="card-int">
           <span class="card__span">{{item.Category}}</span>
@@ -100,7 +100,7 @@
     
         let storage = this.$store.state.products;
         let s = this.search;
-        let v = storage.filter(prod => {
+        let v =   storage.filter(prod => {
           return prod.prodName.toLowerCase().includes(s.toLowerCase()) || prod.Category.toLowerCase().includes(s.toLowerCase());
         });
         if (v.length === 0) {
@@ -243,6 +243,8 @@
       background-color: #f3f3f4;
       color: #f3f3f4;
       transition: 0.3s ease;
+      margin-bottom: 1%;
+      margin-left: 4.5%;
     }
 
     .input::placeholder {
